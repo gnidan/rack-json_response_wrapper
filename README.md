@@ -12,6 +12,6 @@ Suppose the following is the original response body:
 With X-WRAP-RESPONSE set to true, the new response will be:
 
     {
-      "headers": { ... bunch of headers ... },
+      "header": { ... bunch of headers ... },
       "body": {"key": "value"}
     }
