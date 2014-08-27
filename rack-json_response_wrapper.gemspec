@@ -7,6 +7,7 @@ Gem::Specification.new do |s|
   s.email             = "nick@gnidan.org"
   s.authors           = [ "g. nicholas d'andrea" ]
   s.has_rdoc          = false
+  s.licenses          = ['Unlicense / Public Domain']
 
   s.files             = %w( README.md Rakefile LICENSE )
   s.files            += Dir.glob("lib/**/*")
