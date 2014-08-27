@@ -20,14 +20,19 @@ module Rack
       response_header = response[1]
 
       is_json = response_header['Content-Type'].match(/application\/json/)
-      wants_wrap = env.include? 'X-WRAP-RESPONSE'
+      wants_wrap = env.include?('HTTP_X_WRAP_RESPONSE') ||
+                   env.include?('X-WRAP-RESPONSE')
 
       is_json && wants_wrap
     end
 
     def wrap_response(response)
-      response_body   = response[2].reduce(&:concat)
       response_header = response[1]
+
+      response_body = ''
+      response[2].each do |segment|
+        response_body += segment
+      end
 
       response_obj = JSON.parse(response_body)
 
