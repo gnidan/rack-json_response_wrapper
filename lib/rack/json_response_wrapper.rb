@@ -1,5 +1,3 @@
-require 'awesome_print'
-
 module Rack
   class JsonResponseWrapper
     def initialize(app)
