@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name              = "rack-json_response_wrapper"
-  s.version           = "0.1.0"
+  s.version           = "0.1.2"
   s.date              = Time.now.strftime('%Y-%m-%d')
   s.summary           = "Rack Middleware for JSON APIs accessed cross-domain from legacy browsers"
   s.homepage          = "http://github.com/gnidan/rack-json_response_wrapper"

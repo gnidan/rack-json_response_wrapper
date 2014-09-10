@@ -47,9 +47,9 @@ module Rack
       # when we change the content-length, the length will change.
       # therefore, calculate the offset by comparing the length of the old vs. new
       original_content_length = response_header['Content-Length']
-      new_content_length = wrapped_body.length
+      new_content_length = wrapped_body.bytesize
       adjusted_content_length =
-        new_content_length.to_s.to_json.length - original_content_length.to_s.to_json.length
+        new_content_length.to_s.to_json.bytesize - original_content_length.to_s.to_json.bytesize
 
       # adjust the new content-length by this offset
       new_content_length += adjusted_content_length
