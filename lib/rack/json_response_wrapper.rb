@@ -19,11 +19,15 @@ module Rack
     def should_wrap?(env, response)
       response_header = response[1]
 
-      is_json = response_header['Content-Type'].match(/application\/json/)
-      wants_wrap = env.include?('HTTP_X_WRAP_RESPONSE') ||
-                   env.include?('X-WRAP-RESPONSE')
+      if response_header.include? 'Content-Type'
+        is_json = response_header['Content-Type'].match(/application\/json/)
+        wants_wrap = env.include?('HTTP_X_WRAP_RESPONSE') ||
+                     env.include?('X-WRAP-RESPONSE')
 
-      is_json && wants_wrap
+        is_json && wants_wrap
+      else
+        false
+      end
     end
 
     def wrap_response(response)
